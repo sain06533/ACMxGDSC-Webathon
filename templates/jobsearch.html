@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+
+<title>Job Search</title>
+
+{% endblock %}
+
+{% block navibar %}
+
+<!-- MENU LINKS -->
+
+<ul class="nav navbar-nav navbar-nav-first">
+
+  <li ><a href="{{url_for('search')}}">Home</a></li>
+
+  <li class="active"><a href="{{url_for('jobsearch')}}">Job Search</a></li>
+
+  <li><a href="{{url_for('aboutus')}}">About Us</a></li>
+
+  <li><a href="{{url_for('contactus')}}">Contact Us</a></li>
+
+</ul>
+
+  {% endblock %}
+  {% block body %}
+
+  <body>
+
+    <header>
+
+      <div class="container">
+
+        <h1 class="custom-home" style="color: aliceblue;">Job Search App</h1>
+
+        <h2 class="custom-home" style="color: aliceblue;">Find your perfect job today!</h2>
+        <center>
+        <form action="{{url_for('jobsearch')}}" method="post">
+
+          <input type="text" class="form-control" placeholder="Job Title" name="search">
+
+          <input type="text" class="form-control" placeholder="Location" name="location">
+
+          <button class="btn btn-block btn-primary">Search</button>
+        </form>
+      </center>
+
+      </div>
+
+    </header>
+
+    <main>
+
+      <div class="container">
+
+
+
+        <div class="result-container">
+
+
+
+          {% for data in data %}
+
+          <div class="cards">
+
+
+            <h4>{{data["title"] | safe}}</h4>
+
+            <h5> {{data["location"]["display_name"] | safe}}</h5>
+
+            <p> {{data['description'] | safe}}</p>
+
+            <button class="button"><b> <a href="{{data["redirect_url"]}}" target="_blank">View Job </a> </b> </button>
+
+          </div>
+
+
+
+
+
+
+          {% endfor %}
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </main>
+
+    {% endblock %}

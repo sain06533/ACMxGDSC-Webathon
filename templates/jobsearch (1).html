@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+
+<title>Hope for Homeless</title>
+
+{% endblock %}
+
+{% block navibar %}
+
+<!-- MENU LINKS -->
+
+<div class="collapse navbar-collapse">
+
+  <ul class="nav navbar-nav navbar-nav-first">
+
+    <li class="active"><a href="{{url_for('jobsearch')}}">Home</a></li>
+
+    <li><a href="{{url_for('aboutus')}}">Add User</a></li>
+
+    <li><a href="{{url_for('contactus')}}">Contact Us</a></li>
+
+  </ul>
+
+  {% endblock %}
+  {% block body %}
+
+  <body>
+
+    <header>
+
+      <div class="container">
+
+        <h1 class="custom-home" style="color: aliceblue;">Shelter App</h1>
+
+        <h2 class="custom-home" style="color: aliceblue;">Find a solution to your problems!</h2>
+
+       <!-- <form action="{{url_for('jobsearch')}}" method="post">
+
+          <input type="text" class="form-control" placeholder="Job Title" name="search">
+
+          <input type="text" class="form-control" placeholder="Location" name="location">
+
+          <button class="btn btn-block btn-primary">Search</button>
+
+        </form>-->
+        <div class="route">
+          <button class="btn btn-success" id="Jo">Jobs</button>
+          <button class="btn btn-success" id="He">Health</button>
+          <button class="btn btn-success" id="Ed">Shelters</button>
+        </div>
+      
+      </div>
+
+    </header>
+    
+        
+
+    <main>
+
+      <div class="container">
+
+
+
+        <div class="result-container">
+
+
+
+          {% for data in data %}
+
+          <div class="cards">
+
+
+            <h4>{{data["title"] | safe}}</h4>
+
+            <h5> {{data["location"]["display_name"] | safe}}</h5>
+
+            <p> {{data['description'] | safe}}</p>
+
+            <button class="button"><b> <a href="{{data["redirect_url"]}}">View Job </a> </b> </button>
+
+          </div>
+
+
+
+
+
+
+          {% endfor %}
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </main>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger intent="WELCOME" chat-title="Likhi" agent-id="9c109821-94de-4bc8-979f-3693d3aae226"
+      language-code="en"></df-messenger>
+    {% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>About US</title>
+{% endblock %}
+
+{% block navibar %}
+<!-- MENU LINKS -->
+<div class="collapse navbar-collapse">
+     <ul class="nav navbar-nav navbar-nav-first">
+          {% if g.firstname %}
+          <li><a href="{{url_for('search')}}">Job Search</a></li>
+          <li><a href="{{url_for('jobsearch')}}">Job Search</a></li>
+          {% else %}
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          {% endif %}
+          <li class="active"><a href="{{url_for('aboutus')}}">About Us</a></li>
+          <li><a href="{{url_for('contactus')}}">Contact Us</a></li>
+
+     </ul>
+
+     {% endblock %}
+
+     {% block body %}
+     <section>
+          <div class="container">
+               <div class="text-center">
+                    <h1>About Us</h1>
+               </div>
+          </div>
+     </section>
+
+     <section class="section-background">
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-offset-1 col-md-4 col-xs-12 pull-right">
+                         <img src="{{url_for('static', filename='images/about-1-720x720.jpg')}}"
+                              class="img-responsive img-circle" alt="">
+                    </div>
+
+                    <div class="col-md-7 col-xs-12">
+                         <div class="about-info">
+                              <h2>What are we?</h2>
+
+                              <figure>
+                                   <figcaption>
+                                        <p>Hope for Homeless is a nonprofitable organisation founded in 2023 by team Runtime Error. Homelessness can strike families and individuals for a number of reasons. Often times it is a mix of low wages and sudden calamity. Physical factors such as the inability to obtain a job or the high prices of housing. Our aim is to provide housing, job training, health care and other resources to the people who are homeless. 
+                                             One of the most significant factors contributing to homelessness is a lack of affordable housing. Many individuals who experience homelessness do so because they cannot afford housing in their area. By providing affordable housing options, homeless individuals can have a stable place to live and begin to rebuild their lives.
+                                             Our website links homeless individuals with affordable housing options can help connect individuals with the resources they need to secure housing. This can include information about subsidized housing programs, rental assistance programs, and other resources that can help make housing more affordable for those experiencing homelessness.
+                                             Healthcare and Mental Health Services
+                                             Many individuals who experience homelessness also struggle with mental illness and addiction. These issues can make it difficult for individuals to access the resources they need to overcome homelessness. Additionally, without access to healthcare services, many individuals may struggle to manage chronic health conditions or receive necessary medical care.</p>
+                                   </figcaption>
+                              </figure>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <section>
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                         <img src="{{url_for('static', filename='images/about-2-720x720.jpg')}}"
+                              class="img-responsive img-circle" alt="">
+                    </div>
+
+                    <div class="col-md-offset-1 col-md-7 col-xs-12">
+                         <div class="about-info">
+                              <h2>What we actually developed and how it is usefull?</h2>
+
+                              <figure>
+                                   <figcaption>
+                                        <p>By linking homeless individuals with healthcare providers and mental health services, our website can provide critical support to those in need. This can include information about free or low-cost clinics, substance abuse treatment programs, and other resources that can help individuals manage their health and wellbeing.
+                                             Job Training and Employment Opportunities
+                                             One of the key factors in overcoming homelessness is securing stable employment. However, many individuals who experience homelessness may not have the skills or training necessary to find and maintain a job. By providing job training programs and employment opportunities, homeless individuals can gain the skills they need to secure stable employment.Our website links homeless individuals with job training programs and employment opportunities to help connect individuals with the resources they need to find and maintain a job. This includes information about job training programs, job fairs, and other resources that can help individuals build their skills and find employment.</p>
+                                   </figcaption>
+                              </figure>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+     {% endblock %}

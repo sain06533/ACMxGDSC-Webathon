@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+
+<title>Hope for Homeless</title>
+
+{% endblock %}
+
+{% block navibar %}
+
+<!-- MENU LINKS -->
+
+<div class="collapse navbar-collapse">
+
+  <ul class="nav navbar-nav navbar-nav-first">
+
+    <li class="active"><a href="{{url_for('search')}}">Home</a></li>
+
+    <li><a href="{{url_for('jobsearch')}}">Job Search</a></li>
+
+    <li><a href="{{url_for('aboutus')}}">About Us</a></li>
+
+    <li><a href="{{url_for('contactus')}}">Contact Us</a></li>
+
+  </ul>
+
+  {% endblock %}
+  {% block body %}
+
+  <body>
+
+    <header>
+
+      <div class="container">
+
+        <h1 class="custom-home" style="color: aliceblue;">Shelter App</h1>
+
+        <h2 class="custom-home" style="color: aliceblue;">Find a solution to your problems!</h2>
+
+        <center>
+          <form action="{{url_for('search')}}" method="post">
+            <select id="e1" class="form-control" name="type">
+              <option value="hg">Housing</option>
+              <option value="hc">HealthCare</option>
+              <option value="jt">Job Training</option>
+            </select>
+ 
+            <select id="e2" class="form-control" name="loc">
+              <option value="hyd">Hyderabad</option>
+            </select>
+            <button class="btn btn-block btn-primary">Search</button>
+          </form>
+        </center>
+        
+      
+      </div>
+
+    </header>
+    
+        
+
+    
+    {% endblock %}
